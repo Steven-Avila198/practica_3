@@ -16,7 +16,34 @@ void implementacion(unsigned long int* semilla,unsigned short int* metodo)
     }
 }
 
+void transcripcion(unsigned long long tamano, bool *correct, fstream &archivo, char* datos)
+{
+    if (archivo.is_open())
+    {
+        for(unsigned long long int i=0 ; i<tamano ;i++) datos[i]=archivo.get();
+        datos[tamano]='\n';
+    }else
+    {
+        *correct=false;
+        cout <<"Archivo no encontrado"<< endl;
+    }
+}
 
+ bool lectura(unsigned long long tamano, bool *modo, char *nombre_tex,char *datos)
+{
+    bool correct= true;
+    if (*modo==true)
+    {
+        fstream archivo(nombre_tex, fstream::in);
+        transcripcion(tamano,&correct,archivo,datos);
+
+    }else if(*modo== false)
+    {
+        fstream archivo(nombre_tex, fstream::in | fstream::binary);
+        transcripcion(tamano,&correct,archivo,datos);
+    }
+  return correct;
+}
 
 
 void escribirm1 ( char *datos, char *nombre, bool modo, unsigned long long int tam)
