@@ -254,8 +254,8 @@ string* codificaionm2(unsigned long long int tamano, string &bina)
             letra=letra+(pow((int(bina[i])-48)*2,a));
         }
         if(bina[i]==0)
-         *escribir= *escribir+ to_string(letra-1);
-        else *escribir=*escribir + to_string(letra);
+         *escribir= *escribir+ char(letra-1);
+        else *escribir=*escribir + char(letra);
     }
     return escribir;
     delete  escribir;
