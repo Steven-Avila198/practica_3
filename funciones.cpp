@@ -16,6 +16,28 @@ void implementacion(unsigned long int* semilla,unsigned short int* metodo)
     }
 }
 
+unsigned long long tamano (char *nombre_tex, bool modo )
+{
+
+    cout << "Ingrese el nombre del archivo "<<endl;
+    cin >> nombre_tex;
+
+    while(true)
+    {
+        if (modo == true)
+        {
+
+            fstream archivo(nombre_tex, fstream::in | fstream::ate);
+            return archivo.tellg();
+        }
+        else
+        {
+            fstream archivo(nombre_tex, fstream::in | fstream::ate | fstream::binary);
+            return archivo.tellg();
+        }
+    }
+}
+
 void transcripcion(unsigned long long tamano, bool *correct, fstream &archivo, char* datos)
 {
     if (archivo.is_open())
