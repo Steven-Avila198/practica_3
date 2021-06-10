@@ -7,8 +7,8 @@ int main()
     unsigned short int metodo;
     unsigned int long semilla ;
     unsigned long long int tamano;
-
-    implementacion(&semilla,&metodo);
+    unsigned short int prueba;
+    implementacion(&semilla,&metodo,&prueba);
 
     if(metodo==1)
     {
@@ -25,9 +25,13 @@ int main()
     else
    {
     string *texto=new  string,nombre="prueba.txt";
-    bool modo=1;
-    lecturam2(&modo,&nombre,texto);
+    bool fallo=true;
+    while(fallo)
+    {
+        fallo=lecturam2(prueba,texto);
+    }
     tamano=texto->length();
+    cout<<*texto<<endl;
     texto=bin_m2(tamano,*texto);
     cout<<*texto<<endl;
     metodo2(*texto,tamano,semilla,0);

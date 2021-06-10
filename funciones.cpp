@@ -1,18 +1,31 @@
 #include "funciones.h"
 
-void implementacion(unsigned long int* semilla,unsigned short int* metodo)
+void implementacion(unsigned long int* semilla,unsigned short int* metodo,unsigned short int *modo)
 {
     cout<<"ingresa la semilla de codificacion"<<endl;cin>>*semilla;
 
     while (true)
     {
-        cout<<endl<<" selecciona metodo de codificacion \n 1.primer metodo \n 2.segundo metodo  "<<endl;cin>>*metodo;
+        cout<<endl<<" selecciona metodo de codificacion \n "
+                    "1.primer metodo \n 2.segundo metodo  "<<endl;cin>>*metodo;
 
         if(*metodo<=2 and *metodo>0)
         {
             break;
         }
         cout<<endl<<"porfavor precionar el numero correspondiente al metodo"<<endl;
+    }
+    while (true)
+    {
+        cout<<" Ingrese 1 si va abrir el archivo en modo normal \n "
+              "Ingrese 2 si va a abrir el archivo en modo binario"<<endl;cin>>*modo;
+
+        if(*modo<=2 and *modo>0)
+        {
+            break;
+        }
+        cout<<endl<<"porfavor precionar el numero correspondiente al metodo"<<endl;
+
     }
 }
 
@@ -132,6 +145,7 @@ void metodo1(unsigned long long int tamano,char *binario,unsigned int semilla)
 {   char *guardado= new char [semilla] ;
     bool primer=true; unsigned long long int ceros=0,unos=0;
 
+
     for(unsigned long int i=0; i<tamano*8;)
     {
 
@@ -199,18 +213,18 @@ char * codificacionm1(unsigned long long int tamano, char *bina)
 
 //metodo 2
 
-bool lecturam2(bool *modo, string *nombre_tex,string *datos)
+bool lecturam2(unsigned short int modo,string *datos)
 {
-
-   bool correct= true;
-   if (*modo==true)
+    string nombre= "natural.txt";
+   bool correct= false;
+   if (modo==1)
    {
-       fstream archivo(*nombre_tex, fstream::in);
+       fstream archivo(nombre, fstream::in);
        transcripcionm2(&correct,datos,archivo);
    }
    else
    {
-       fstream archivo(*nombre_tex, fstream::in | fstream::binary);
+       fstream archivo(nombre, fstream::in | fstream::binary);
        transcripcionm2(&correct,datos,archivo);
    }
 
@@ -221,7 +235,7 @@ void transcripcionm2(bool *correct, string *datos,fstream &archivo)
 {
     if (!archivo.is_open())
     {
-        *correct=false;
+        *correct=true;
         cout <<"Archivo no encontrado"<< endl;
     }
 

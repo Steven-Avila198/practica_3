@@ -12,7 +12,7 @@
 using namespace std;
 
 //funcion de pregunta
-void implementacion(unsigned long int*,unsigned short int*);
+void implementacion(unsigned long int*,unsigned short int*,unsigned short int*);
 
 //metodo1
 char *lecturam1(unsigned long long int*);
@@ -24,7 +24,7 @@ void escribirm1( char, char, bool , unsigned long long int );
 
 //metodo 2
 
-bool lecturam2(bool*, string* ,string *);
+bool lecturam2( unsigned short int,string *);
 string *bin_m2(unsigned long long int , string &);
 void metodo2(string&,unsigned long long,unsigned long int,unsigned long int);
 void transcripcionm2(bool *,string*,fstream&);
