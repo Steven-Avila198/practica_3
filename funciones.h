@@ -29,6 +29,7 @@ string *bin_m2(unsigned long long int , string &);
 void metodo2(string&,unsigned long long,unsigned long int,unsigned long int);
 void transcripcionm2(bool *,string*,fstream&);
 string *codificaionm2(unsigned long long int tamano, string &bina);
+void escribirm2 ( string &, unsigned short int  );
 
 
 

@@ -31,13 +31,10 @@ int main()
         fallo=lecturam2(prueba,texto);
     }
     tamano=texto->length();
-    cout<<*texto<<endl;
     texto=bin_m2(tamano,*texto);
-    cout<<*texto<<endl;
     metodo2(*texto,tamano,semilla,0);
-    cout<<*texto<<endl;
     texto=codificaionm2(tamano,*texto);
-    cout<<*texto<<endl;
+    escribirm2(*texto,prueba);
     delete texto;
     }
     return 0;

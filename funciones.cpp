@@ -81,11 +81,11 @@ void transcripcion(unsigned long long tamano, bool *correct, fstream &archivo, c
 }
 
 
-void escribirm1 ( char *datos, char *nombre, bool modo, unsigned long long int tam)
+void escribirm1 ( char *datos, char *nombre, unsigned short int modo, unsigned long long int tam)
 {
 
     fstream text;
-    if(modo)
+    if(modo ==1)
     {
         text.open(nombre, fstream::out);
         text << datos;
@@ -327,6 +327,23 @@ void metodo2(string &text, unsigned long long tamano, unsigned long int  semilla
         for (unsigned long int i=posicion;i<tamano*8 ;i++ ) conteo++;
         metodo2(text,tamano,conteo,posicion);
     }
+}
+
+void escribirm2 ( string &datos, unsigned short int modo)
+{
+    string nombre="codificado.dat";
+    fstream text;
+    if(modo ==1)
+    {
+        text.open(nombre, fstream::out);
+        text << datos;
+    }
+    else
+    {
+        text.open(nombre, fstream::out | fstream::binary);
+        text<<datos;
+    }
+    text.close();
 }
 
 
