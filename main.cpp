@@ -26,10 +26,8 @@ int main()
    {
     string *texto=new  string,nombre="prueba.txt";
     bool fallo=true;
-    while(fallo)
-    {
-        fallo=lecturam2(prueba,texto);
-    }
+    while(fallo) fallo=lecturam2(prueba,texto);
+
     tamano=texto->length();
     texto=bin_m2(tamano,*texto);
     metodo2(*texto,tamano,semilla,0);

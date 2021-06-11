@@ -304,7 +304,7 @@ void metodo2(string &text, unsigned long long tamano, unsigned long int  semilla
 
     string nex,ultimo;
 
-    for(unsigned int i=0;i<(tamano*8)/semilla ;i++)
+    for(unsigned int i=0;i<(tamano*8)/semilla and posicion<tamano*8;i++)
     {
         ultimo=text[posicion+semilla-1];
         nex=text[posicion+1];
@@ -322,6 +322,7 @@ void metodo2(string &text, unsigned long long tamano, unsigned long int  semilla
                 text[posicion]=ultimo[0];
         }
     }
+
     if((tamano*8)%semilla != 0)
     {   unsigned long int conteo=0;
         for (unsigned long int i=posicion;i<tamano*8 ;i++ ) conteo++;
